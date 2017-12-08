@@ -24,13 +24,54 @@
             android:layout_marginTop="34dp"
             app:srcCompat="@drawable/old_german_radio" />
 
+        <SeekBar
+            android:id="@+id/volumeSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="37dp" />
+
+        <SeekBar
+            android:id="@+id/audioSeeker"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="21dp" />
+
+        <TextView
+            android:id="@+id/setVolumeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
+            android:text="Set Volume"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/audioSeekerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/audioSeeker"
+            android:layout_alignLeft="@+id/setVolumeTextView"
+            android:layout_alignStart="@+id/setVolumeTextView"
+            android:layout_marginBottom="7dp"
+            android:text="Audio Seeker"
+            android:textSize="18sp" />
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="163dp"
+            android:layout_marginBottom="84dp"
             android:orientation="horizontal">
 
             <Button
@@ -52,15 +93,6 @@
                 android:onClick="pause"
                 android:text="Pause ||" />
         </LinearLayout>
-
-        <SeekBar
-            android:id="@+id/volumeSlider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -6,13 +6,16 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.MediaController;
 import android.widget.SeekBar;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
     MediaPlayer audioPlayer;
     AudioManager volumeManager;
+    AudioManager audioSeeker;
 
     public void play (View view){
 
@@ -37,15 +40,32 @@ public class MainActivity extends AppCompatActivity {
         int maxVolume = volumeManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int currentVolume = volumeManager.getStreamVolume(AudioManager.STREAM_MUSIC);
 
-        final SeekBar volumeSlider = findViewById(R.id.volumeSlider);
+         SeekBar volumeSlider = findViewById(R.id.volumeSlider);
         volumeSlider.setMax(maxVolume);
         volumeSlider.setProgress(currentVolume);
+
+
+        int duration = audioPlayer.getDuration();
+       int currentPosition = audioPlayer.getCurrentPosition();
+
+        final SeekBar audioSeekBar =  findViewById(R.id.audioSeeker);
+
+        audioSeekBar.setMax(duration);
+        audioSeekBar.setProgress(currentPosition);
+
+
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                audioSeekBar.setProgress(audioPlayer.getCurrentPosition());
+            }
+        },0, 100);
+
 
         volumeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-            System.out.println("Current Status Number" + progress);
             volumeManager.setStreamVolume(volumeManager.STREAM_MUSIC, progress, 0);
 
             }
@@ -61,6 +81,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        audioSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                audioPlayer.seekTo(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
     }
 }
