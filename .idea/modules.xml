@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\PEN\Documents\GitHub\audio\app\app.iml" filepath="C:\Users\PEN\Documents\GitHub\audio\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/audio.iml" filepath="$PROJECT_DIR$/audio.iml" />
-      <module fileurl="file://C:\Users\PEN\Documents\GitHub\audio\audio.iml" filepath="C:\Users\PEN\Documents\GitHub\audio\audio.iml" />
     </modules>
   </component>
 </project>
