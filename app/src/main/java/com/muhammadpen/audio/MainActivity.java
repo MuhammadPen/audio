@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer audioPlayer;
     AudioManager volumeManager;
-    AudioManager audioSeeker;
 
     public void play (View view){
 
@@ -100,5 +99,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        try {
+        } catch (Exception e) {
+           System.out.println("nothing");
+        }
+
     }
+
+
+
 }
